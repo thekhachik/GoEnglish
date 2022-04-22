@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ava1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        app:srcCompat="@drawable/ava1" />
+
+    <ImageView
+        android:id="@+id/ava2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:srcCompat="@drawable/ava2" />
+
+    <ImageView
+        android:id="@+id/ava3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/ava3" />
+
+    <ImageView
+        android:id="@+id/ava4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="140dp"
+        android:layout_marginStart="20dp"
+        app:srcCompat="@drawable/ava4" />
+
+    <ImageView
+        android:id="@+id/ava5"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="20dp"
+        app:srcCompat="@drawable/ava5" />
+
+    <ImageView
+        android:id="@+id/ava6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="140dp"
+        app:srcCompat="@drawable/ava6" />
+
+    <ImageView
+        android:id="@+id/ava7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="260dp"
+        android:layout_marginStart="20dp"
+        app:srcCompat="@drawable/ava8" />
+
+    <ImageView
+        android:id="@+id/ava8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="20dp"
+        app:srcCompat="@drawable/ava9" />
+
+    <ImageView
+        android:id="@+id/ava9"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="260dp"
+        app:srcCompat="@drawable/ava10" />
+
+    <ImageView
+        android:id="@+id/ava10"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="380dp"
+        android:layout_marginStart="20dp"
+        app:srcCompat="@drawable/ava11" />
+
+    <ImageView
+        android:id="@+id/ava11"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="380dp"
+        android:layout_marginEnd="20dp"
+        app:srcCompat="@drawable/ava12" />
+
+    <ImageView
+        android:id="@+id/ava12"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="380dp"
+        android:layout_marginBottom="20dp"
+        app:srcCompat="@drawable/ava13" />
+
+</FrameLayout>
