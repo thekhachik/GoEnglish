@@ -28,14 +28,17 @@ public class MainActivity extends AppCompatActivity {
 
         replaceFragment(new TutorialsFragment());
 
-        if(Data.selectFragment == "tutor"){
+        if(Data.selectFragment.equals("tutor")){
             replaceFragment(new TutorialsFragment());
         }
-        else if(Data.selectFragment == "test"){
+        else if(Data.selectFragment.equals("test")){
             replaceFragment(new TestsFragment());
         }
-        else if(Data.selectFragment == "prof"){
+        else if(Data.selectFragment.equals("prof")){
             replaceFragment(new ProfileFragment());
+        }
+        else if(Data.selectFragment.equals("read")){
+            replaceFragment(new TutorialReadFragment());
         }
 
         bottomNavigationView.setSelectedItemId(R.id.tutorial);

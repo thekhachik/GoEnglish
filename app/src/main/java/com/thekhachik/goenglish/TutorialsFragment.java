@@ -99,6 +99,7 @@ public class TutorialsFragment extends Fragment {
     }
 
     public void replaceRead(){
+        Data.selectFragment = "read";
         Fragment fragment = new TutorialReadFragment();
         FragmentManager fm = getActivity().getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
