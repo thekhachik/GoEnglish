@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
         else if(Data.selectFragment.equals("read")){
             replaceFragment(new TutorialReadFragment());
         }
+        else if(Data.selectFragment.equals("start")){
+            replaceFragment(new TestStartFragment());
+        }
 
         bottomNavigationView.setSelectedItemId(R.id.tutorial);
         bottomNavigationView.setOnItemSelectedListener(item -> {

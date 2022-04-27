@@ -17,6 +17,7 @@
         android:layout_marginTop="10dp"/>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/elementary"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_gravity="top|center"
@@ -45,6 +46,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/preIntermediate"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_gravity="top|center"
@@ -73,6 +75,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/intermediate"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_gravity="top|center"
@@ -103,6 +106,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/upper"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_gravity="top|center"
