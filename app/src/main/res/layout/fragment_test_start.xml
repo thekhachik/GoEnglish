@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="start|top"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="250dp">
 
         <RadioButton
@@ -39,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="25dp"
+            android:theme="@style/MyRadioButton"
             android:text="A" />
 
         <RadioButton
@@ -46,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="25dp"
+            android:theme="@style/MyRadioButton"
             android:text="B" />
 
         <RadioButton
@@ -53,6 +56,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="25dp"
+            android:theme="@style/MyRadioButton"
             android:text="C" />
     </RadioGroup>
 
@@ -62,6 +66,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
         android:layout_marginTop="500dp"
-        android:text="Button" />
+        android:background="@drawable/custom_button_from_pofile"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:text="Next Task" />
 
 </FrameLayout>
