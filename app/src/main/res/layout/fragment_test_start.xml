@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TestStartFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose the appropriate answer"
+        android:textSize="24sp"
+        android:textColor="@color/DarkGray"
+        android:textStyle="bold"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/textTask"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:text="Anna and Kate _________ to the cinema last Sunday. ываыафыаыафыааыфаыаыаыа"
+        android:textSize="18sp"
+        android:textColor="@color/DarkGray"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="150dp"/>
+
+    <RadioGroup
+        android:id="@+id/groupBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="start|top"
+        android:layout_marginTop="250dp">
+
+        <RadioButton
+            android:id="@+id/answer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="A" />
+
+        <RadioButton
+            android:id="@+id/answer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="B" />
+
+        <RadioButton
+            android:id="@+id/answer3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="25dp"
+            android:text="C" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="500dp"
+        android:text="Button" />
+
+</FrameLayout>
