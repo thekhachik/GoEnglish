@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.android.material.imageview.ShapeableImageView;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -143,8 +142,6 @@ public class ProfileFragment extends Fragment {
                 dialog.show();
             }
         });
-
-
 
         return view;
     }
