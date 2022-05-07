@@ -9,18 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.thekhachik.goenglish.DataBase.App;
-import com.thekhachik.goenglish.DataBase.AppDatabase;
-import com.thekhachik.goenglish.DataBase.Person;
-import com.thekhachik.goenglish.DataBase.PersonDao;
-
 public class RegActivity extends AppCompatActivity {
 
     public EditText inputName, inputUserName, inputEmail, inputPassword;
     public Button signUpBtn;
     public TextView signInBtn;
 
-    App app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,16 +36,5 @@ public class RegActivity extends AppCompatActivity {
             }
         });
 
-        AppDatabase db = App.getInstance().getDatabase();
-        Person person = new Person();
-        PersonDao personDao = db.personDao();
-        person.name = inputName.getText().toString();
-        person.username = inputUserName.getText().toString();
-        person.email = inputEmail.getText().toString();
-        person.password = inputPassword.getText().toString();
-        person.id = 1;
-        person.ava = 2;
-
-        personDao.insert(person);
     }
 }
