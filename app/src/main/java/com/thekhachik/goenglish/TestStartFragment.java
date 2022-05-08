@@ -2,6 +2,7 @@ package com.thekhachik.goenglish;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,6 +15,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -33,8 +43,14 @@ public class TestStartFragment extends Fragment {
     public ArrayList<Boolean> TrueOrFalseAnswer = new ArrayList<>();
     public Boolean bool;
 
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase db;
+    private DatabaseReference myRef;
+
     //Счетчик для списков
     public int ig = 0;
+
+    int c = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,6 +62,10 @@ public class TestStartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_test_start, container, false);
+
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+        myRef = db.getReference();
 
         //Связываем все элементы из XML
         textTask = view.findViewById(R.id.textTask);
@@ -62,6 +82,27 @@ public class TestStartFragment extends Fragment {
             ListElemB = ElementaryData.elemB;
             ListElemC = ElementaryData.elemC;
             ListAnswer = ElementaryData.answers2;
+        }
+        else if(Data.checkTest == 2){
+            ListTask = PreIntData.PreIntTest;
+            ListElemA = PreIntData.elemA;
+            ListElemB = PreIntData.elemB;
+            ListElemC = PreIntData.elemC;
+            ListAnswer = PreIntData.answers2;
+        }
+        else if(Data.checkTest == 3){
+            ListTask = IntermediaData.IntermediaTest;
+            ListElemA = IntermediaData.elemA;
+            ListElemB = IntermediaData.elemB;
+            ListElemC = IntermediaData.elemC;
+            ListAnswer = IntermediaData.answers2;
+        }
+        else if(Data.checkTest == 4){
+            ListTask = UpperData.UpperTest;
+            ListElemA = UpperData.elemA;
+            ListElemB = UpperData.elemB;
+            ListElemC = UpperData.elemC;
+            ListAnswer = UpperData.answers2;
         }
 
         //Добавляем текст с заданием и пункты ответов.
@@ -138,6 +179,19 @@ public class TestStartFragment extends Fragment {
                     Toast toast = Toast.makeText(getContext(), "Выберите ответ", Toast.LENGTH_SHORT);
                     toast.show();
                 }
+
+                FirebaseUser user = mAuth.getCurrentUser();
+
+                for(int i = 0; TrueOrFalseAnswer.size() > i; i++){
+
+                    Boolean as = TrueOrFalseAnswer.get(i);
+
+                    if (as == true) {
+                        myRef.child("Users").child(user.getUid()).child("points").setValue(c);
+                        c++;
+                    }
+                }
+                System.out.println(c);
                 System.out.println(ig);
                 System.out.println(TrueOrFalseAnswer);
             }
@@ -146,7 +200,4 @@ public class TestStartFragment extends Fragment {
         return view;
     }
 
-    public void checkTask(){
-
-    }
 }

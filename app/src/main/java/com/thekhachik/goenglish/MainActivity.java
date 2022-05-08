@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         else if(Data.selectFragment.equals("start")){
             replaceFragment(new TestStartFragment());
         }
+        else if(Data.selectFragment.equals("polls")){
+            replaceFragment(new PollsFragment());
+        }
 
         bottomNavigationView.setSelectedItemId(R.id.tutorial);
         bottomNavigationView.setOnItemSelectedListener(item -> {
@@ -56,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.tests:
                     replaceFragment(new TestsFragment());
                     Data.selectFragment = "test";
+                    break;
+
+                case R.id.polls:
+                    replaceFragment(new PollsFragment());
+                    Data.selectFragment = "polls";
                     break;
 
                 case R.id.profile:

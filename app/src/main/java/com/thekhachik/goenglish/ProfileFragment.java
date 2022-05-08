@@ -107,6 +107,13 @@ public class ProfileFragment extends Fragment {
         });
 
 
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseUser user = mAuth.getCurrentUser();
+                myRef.child("Users").child(user.getUid()).child("points").setValue(1);
+            }
+        });
 
 
         signOut.setOnClickListener(new View.OnClickListener() {

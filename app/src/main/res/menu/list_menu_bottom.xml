@@ -12,6 +12,11 @@
         android:icon="@drawable/ic_tests"/>
 
     <item
+        android:id="@+id/polls"
+        android:title="Polls"
+        android:icon="@drawable/ic_poll"/>
+
+    <item
         android:id="@+id/profile"
         android:title="@string/profile"
         android:icon="@drawable/ic_profile"/>
