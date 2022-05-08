@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -14,8 +15,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -24,6 +34,10 @@ public class ProfileFragment extends Fragment {
     public Button settings;
     public Button privacy;
     public Button signOut;
+    public TextView nameTXT, emailTXT, pointsTXT;
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase db;
+    private DatabaseReference myRef;
 
     public ShapeableImageView imgProf;
 
@@ -43,6 +57,66 @@ public class ProfileFragment extends Fragment {
         settings = view.findViewById(R.id.settingsButton);
         privacy = view.findViewById(R.id.privacyButton);
         signOut = view.findViewById(R.id.signOutButton);
+        nameTXT = view.findViewById(R.id.nameTXT);
+        emailTXT = view.findViewById(R.id.emailTXT);
+        pointsTXT = view.findViewById(R.id.pointsTXT);
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+        myRef = db.getReference();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        //Получаем из БД данные
+        myRef.child("Users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Object nameF = snapshot.child(user.getUid()).child("name").getValue();
+                nameTXT.setText(nameF.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        myRef.child("Users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Object emailF = snapshot.child(user.getUid()).child("email").getValue();
+                emailTXT.setText(emailF.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        myRef.child("Users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Object pointsF = snapshot.child(user.getUid()).child("points").getValue();
+                pointsTXT.setText(pointsF.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getContext(), LogActivity.class);
+                startActivity(intent);
+            }
+        });
 
         imgProf.setOnClickListener(new View.OnClickListener() {
             @Override

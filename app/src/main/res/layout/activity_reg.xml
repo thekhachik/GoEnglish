@@ -6,95 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".RegActivity">
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register to app"
-        android:textColor="@color/DarkGray"
-        android:textStyle="bold"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="100dp"
+        android:text="Get started app"
         android:textSize="36sp"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="150dp"/>
+        android:textColor="@color/DarkGray"
+        android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/inputName"
+        android:id="@+id/input_name"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="your name"
+        android:layout_height="30dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="200dp"
         android:textAlignment="center"
-        android:background="@drawable/custom_edit_text"
-        android:paddingVertical="3dp"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="230dp"/>
-
-    <EditText
-        android:id="@+id/inputUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="username"
-        android:textAlignment="center"
-        android:background="@drawable/custom_edit_text"
-        android:paddingVertical="3dp"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="265dp"/>
-
-    <EditText
-        android:id="@+id/inputEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:hint="email"
-        android:textAlignment="center"
         android:background="@drawable/custom_edit_text"
-        android:paddingVertical="3dp"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="300dp"/>
+        android:hint="your name" />
 
     <EditText
-        android:id="@+id/inputPassword"
+        android:id="@+id/input_email"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="250dp"
+        android:background="@drawable/custom_edit_text"
+        android:ems="10"
+        android:hint="email"
+        android:inputType="textEmailAddress"
+        android:textAlignment="center" />
+
+    <EditText
+        android:id="@+id/input_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="300dp"
+        android:textAlignment="center"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="password"
-        android:textAlignment="center"
         android:background="@drawable/custom_edit_text"
-        android:paddingVertical="3dp"
-        android:layout_gravity="top|center"
-        android:layout_marginTop="335dp"/>
+        android:hint="password"/>
 
     <Button
         android:id="@+id/signUpBtn"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="Sign Up"
-        android:background="@drawable/custom_button_from_pofile"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
+        android:layout_height="wrap_content"
         android:layout_gravity="top|center"
-        android:layout_marginTop="400dp" />
+        android:layout_marginTop="350dp"
+        android:background="@drawable/custom_button_from_pofile"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:textAllCaps="false"/>
 
     <TextView
         android:id="@+id/signInBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
-        android:textColor="@color/DarkGray"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginBottom="25dp"
+        android:textSize="18sp"
+        android:text="Sign In" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="80dp"
         android:text="Учи английский с нами"
         android:textSize="24sp"
-        android:textColor="@color/DarkGray"
-        android:layout_gravity="bottom|center"
-        android:layout_marginBottom="60dp"/>
+        android:textColor="@color/DarkGray"/>
+
+
 </FrameLayout>

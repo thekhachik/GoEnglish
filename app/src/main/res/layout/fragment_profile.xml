@@ -37,9 +37,10 @@
         android:backgroundTint="#EFEFEF">
 
         <TextView
+            android:id="@+id/pointsTXT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0/200"
+            android:text="..."
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="@color/DarkGray"
@@ -58,10 +59,10 @@
 
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/nameTXT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Эрик Хачятрян"
+        android:text="Загрузка..."
         android:textSize="24sp"
         android:textColor="@color/DarkGray"
         android:textStyle="bold"
@@ -69,10 +70,10 @@
         android:layout_marginTop="130dp"/>
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/emailTXT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="\@Erik"
+        android:text="Загрузка..."
         android:textSize="20sp"
         android:textColor="@color/MediumGray"
         android:layout_gravity="center|top"

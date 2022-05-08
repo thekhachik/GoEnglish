@@ -1,29 +1,70 @@
 package com.thekhachik.goenglish;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LogActivity extends AppCompatActivity {
 
-    public EditText inputUserName2, inputPassword2;
+    public EditText input_email2, input_password2;
     public Button signInBtn2;
     public TextView signUpBtn2;
+    private FirebaseAuth mAuth;
+    private FirebaseDatabase db;
+    private DatabaseReference users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
 
-        inputUserName2 = findViewById(R.id.inputUserName2);
-        inputPassword2 = findViewById(R.id.inputPassword2);
+        input_email2 = findViewById(R.id.input_email2);
+        input_password2 = findViewById(R.id.input_pass2);
         signInBtn2 = findViewById(R.id.signInBtn2);
         signUpBtn2 = findViewById(R.id.signUpBtn2);
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+        users = db.getReference("Users");
+
+        signInBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!TextUtils.isEmpty(input_email2.getText().toString()) && !TextUtils.isEmpty(input_password2.getText().toString())) {
+                    mAuth.signInWithEmailAndPassword(input_email2.getText().toString(), input_password2.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Intent intentLog = new Intent(LogActivity.this, MainActivity.class);
+                                startActivity(intentLog);
+                            } else {
+                                Toast.makeText(LogActivity.this, "Почта или пароль введены неверно", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                } else {
+                    Toast.makeText(LogActivity.this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         signUpBtn2.setOnClickListener(new View.OnClickListener() {
             @Override

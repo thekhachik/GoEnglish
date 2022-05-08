@@ -15,4 +15,6 @@ public class Data {
 
     //Fragment
     static String selectFragment = "tutor";
+
+    static String nameProf, emailProf;
 }
