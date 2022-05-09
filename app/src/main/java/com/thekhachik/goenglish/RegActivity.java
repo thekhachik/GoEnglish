@@ -29,18 +29,6 @@ public class RegActivity extends AppCompatActivity {
     private FirebaseDatabase db;
     private DatabaseReference users;
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if (currentUser != null){
-//            Intent intent = new Intent(RegActivity.this, MainActivity.class);
-//
-//            startActivity(intent);
-//        }
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +55,7 @@ public class RegActivity extends AppCompatActivity {
                                 user.setEmail(input_email.getText().toString());
                                 user.setName(input_name.getText().toString());
                                 user.setPassword(input_password.getText().toString());
-                                user.setPoints(0);
+                                user.setLvl("Noob");
 
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user);
                                 Toast.makeText(RegActivity.this, "Регистрация пройдена", Toast.LENGTH_SHORT).show();

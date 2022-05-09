@@ -6,15 +6,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.imageview.ShapeableImageView;
@@ -26,12 +25,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class ProfileFragment extends Fragment {
 
-    public Button settings;
     public Button privacy;
     public Button signOut;
     public TextView nameTXT, emailTXT, pointsTXT;
@@ -54,7 +49,6 @@ public class ProfileFragment extends Fragment {
         //Image
         imgProf = view.findViewById(R.id.imgProf);
         //Button
-        settings = view.findViewById(R.id.settingsButton);
         privacy = view.findViewById(R.id.privacyButton);
         signOut = view.findViewById(R.id.signOutButton);
         nameTXT = view.findViewById(R.id.nameTXT);
@@ -96,7 +90,7 @@ public class ProfileFragment extends Fragment {
         myRef.child("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Object pointsF = snapshot.child(user.getUid()).child("points").getValue();
+                Object pointsF = snapshot.child(user.getUid()).child("lvl").getValue();
                 pointsTXT.setText(pointsF.toString());
             }
 
@@ -107,11 +101,15 @@ public class ProfileFragment extends Fragment {
         });
 
 
-        settings.setOnClickListener(new View.OnClickListener() {
+        privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseUser user = mAuth.getCurrentUser();
-                myRef.child("Users").child(user.getUid()).child("points").setValue(1);
+                Fragment fragment = new PrivacyFragment();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+                ft.replace(R.id.mainFrame, fragment);
+                ft.commit();
             }
         });
 

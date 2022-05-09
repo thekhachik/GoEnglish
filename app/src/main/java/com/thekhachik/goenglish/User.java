@@ -1,16 +1,16 @@
 package com.thekhachik.goenglish;
 
 public class User {
-    private String name, email, password;
-    private int points;
+    private String name, email, password, lvl;
+
 
     public User(){}
 
-    public User(String name, String email, String password, int points) {
+    public User(String name, String email, String password, String lvl) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.points = points;
+        this.lvl = lvl;
     }
 
     public String getName() {
@@ -37,11 +37,11 @@ public class User {
         this.password = password;
     }
 
-    public int getPoints() {
-        return points;
+    public String getLvl() {
+        return lvl;
     }
 
-    public void setPoints(int points) {
-        this.points = points;
+    public void setLvl(String lvl) {
+        this.lvl = lvl;
     }
 }

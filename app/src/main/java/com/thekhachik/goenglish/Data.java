@@ -17,4 +17,8 @@ public class Data {
     static String selectFragment = "tutor";
 
     static String nameProf, emailProf;
+
+    static int points = 0;
+
+    static ArrayList<Boolean> ResultList = new ArrayList<>();
 }

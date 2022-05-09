@@ -50,7 +50,6 @@ public class TestStartFragment extends Fragment {
     //Счетчик для списков
     public int ig = 0;
 
-    int c = 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -111,6 +110,8 @@ public class TestStartFragment extends Fragment {
         answer2.setText(ListElemB.get(ig));
         answer3.setText(ListElemC.get(ig));
 
+        FirebaseUser user = mAuth.getCurrentUser();
+
         //Проверка какой ответ верный
         groupBtn.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -150,6 +151,7 @@ public class TestStartFragment extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(answer1.isChecked() || answer2.isChecked() || answer3.isChecked()){
                     if(ig+1 <= ListTask.size()-1){
                         //Увеличиваем счетчик на 1, чтобы указать следуюзие задания
@@ -165,9 +167,12 @@ public class TestStartFragment extends Fragment {
                         answer1.setText(ListElemA.get(ig));
                         answer2.setText(ListElemB.get(ig));
                         answer3.setText(ListElemC.get(ig));
+
+
                     }
                     else {
-                        Fragment fragment = new TestsFragment();
+                        Data.ResultList = TrueOrFalseAnswer;
+                        Fragment fragment = new ResultFragment();
                         FragmentManager fm = getActivity().getSupportFragmentManager();
                         FragmentTransaction ft = fm.beginTransaction();
                         ft.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
@@ -179,23 +184,15 @@ public class TestStartFragment extends Fragment {
                     Toast toast = Toast.makeText(getContext(), "Выберите ответ", Toast.LENGTH_SHORT);
                     toast.show();
                 }
-
-                FirebaseUser user = mAuth.getCurrentUser();
-
-                for(int i = 0; TrueOrFalseAnswer.size() > i; i++){
-
-                    Boolean as = TrueOrFalseAnswer.get(i);
-
-                    if (as == true) {
-                        myRef.child("Users").child(user.getUid()).child("points").setValue(c);
-                        c++;
-                    }
-                }
-                System.out.println(c);
-                System.out.println(ig);
-                System.out.println(TrueOrFalseAnswer);
             }
         });
+
+
+
+
+
+
+
 
         return view;
     }
