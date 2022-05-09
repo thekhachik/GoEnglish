@@ -56,6 +56,7 @@ public class RegActivity extends AppCompatActivity {
                                 user.setName(input_name.getText().toString());
                                 user.setPassword(input_password.getText().toString());
                                 user.setLvl("Noob");
+                                user.setAva(1);
 
                                 users.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user);
                                 Toast.makeText(RegActivity.this, "Регистрация пройдена", Toast.LENGTH_SHORT).show();

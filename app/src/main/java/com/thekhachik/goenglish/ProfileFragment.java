@@ -100,6 +100,56 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        myRef.child("Users").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Object avaF = snapshot.child(user.getUid()).child("ava").getValue();
+                int chekAva = Integer.parseInt(avaF.toString());
+                if (chekAva == 1){
+                    imgProf.setImageResource(R.drawable.ava1);
+                }
+                if (chekAva == 2){
+                    imgProf.setImageResource(R.drawable.ava2);
+                }
+                if (chekAva == 3){
+                    imgProf.setImageResource(R.drawable.ava3);
+                }
+                if (chekAva == 4){
+                    imgProf.setImageResource(R.drawable.ava4);
+                }
+                if (chekAva == 5){
+                    imgProf.setImageResource(R.drawable.ava5);
+                }
+                if (chekAva == 6){
+                    imgProf.setImageResource(R.drawable.ava6);
+                }
+                if (chekAva == 7){
+                    imgProf.setImageResource(R.drawable.ava8);
+                }
+                if (chekAva == 8){
+                    imgProf.setImageResource(R.drawable.ava9);
+                }
+                if (chekAva == 9){
+                    imgProf.setImageResource(R.drawable.ava10);
+                }
+                if (chekAva == 10){
+                    imgProf.setImageResource(R.drawable.ava11);
+                }
+                if (chekAva == 11){
+                    imgProf.setImageResource(R.drawable.ava12);
+                }
+                if (chekAva == 12){
+                    imgProf.setImageResource(R.drawable.ava13);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,72 +199,84 @@ public class ProfileFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava1);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(1);
                     }
                 });
                 ava2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava2);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(2);
                     }
                 });
                 ava3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava3);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(3);
                     }
                 });
                 ava4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava4);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(4);
                     }
                 });
                 ava5.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava5);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(5);
                     }
                 });
                 ava6.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava6);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(6);
                     }
                 });
                 ava7.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava8);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(7);
                     }
                 });
                 ava8.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava9);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(8);
                     }
                 });
                 ava9.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava10);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(9);
                     }
                 });
                 ava10.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava11);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(10);
                     }
                 });
                 ava11.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava12);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(11);
                     }
                 });
                 ava12.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         imgProf.setImageResource(R.drawable.ava13);
+                        myRef.child("Users").child(user.getUid()).child("ava").setValue(12);
                     }
                 });
 
