@@ -109,3 +109,4 @@ public class PollsFragment extends Fragment {
         return view;
     }
 }
+// Erik
